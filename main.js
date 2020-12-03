@@ -1,12 +1,21 @@
 const app = Vue.createApp({
-    data: function() {
+    data: function () {
         return {
-            product:{
+            product: {
                 name: 'Socks',
-                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                details: [
+                    { material: 'cotton', percent: '50' },
+                    { material: 'wool', percent: '30' },
+                    { material: 'polyester', percent: '20' }
+
+                ],
                 image: './assets/images/socks_blue.jpg',
-                inStock: true,
-                url: 'https://github.com/gabriel-acuna/vue3-basic'
+                inventory: 9,
+                variants: [
+                    { id: 2234, color: 'green' },
+                    { id: 235, color: 'blue'}
+                ]
+            
             }
         }
     }

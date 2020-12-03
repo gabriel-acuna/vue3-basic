@@ -13,6 +13,7 @@
 <body>
   <div id="app">
     <div class="nav-bar"></div>
+    <div class="cart">Cart({{ cart }})</div>
     <div class="product-display">
       <div class="product-container">
         <div class="product-image">
@@ -20,10 +21,20 @@
         </div>
         <div class="product-info">
           <h1>{{ product.name }}</h1>
-          <p>
-            {{ product.description }}
-            <a :href="product.url"> view more</a>
-          </p>
+          <span>Details:</span>
+          <ul>
+            <li v-for="detail in product.details">
+              {{ detail.percent }} % {{ detail.material }}
+            </li>
+          </ul>
+          <div v-for="variant in product.variants" :key="variant.id">
+            {{variant.color}}
+          </div>  
+          <p v-if="product.inventory > 10">In Stock</p>
+          <p v-else-if="product.inventory <= 10 && product.inventory > 0"> Almost out of stock</p>
+          <p v-else>Out of Stock</p>
+
+          <button class="button">Add to Cart</button>
         </div>
       </div>
     </div>
