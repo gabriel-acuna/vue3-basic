@@ -9,14 +9,19 @@ const app = Vue.createApp({
                     { material: 'polyester', percent: '20' }
 
                 ],
-                image: './assets/images/socks_blue.jpg',
                 inventory: 9,
                 variants: [
-                    { id: 2234, color: 'green' },
-                    { id: 235, color: 'blue'}
+                    { id: 2234, color: 'green', image: './assets/images/socks_blue.jpg' },
+                    { id: 235, color: 'blue', image: './assets/images/socks_green.jpg',}
                 ]
             
-            }
+            },
+            cart:0
         }
-    }
+    },
+    methods: {
+        addItem() {
+            this.cart++;
+        }
+    },
 })
